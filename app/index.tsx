@@ -12,13 +12,15 @@ export default function Index() {
   const [answer, setAnswer] = useState('');
   const [isLoading, setLoading] = useState(false);
 
+  //função para copiar as sugestões dadas pela IA 
   const copyToClipboard = async (content: string) => {
     await Clipboard.setStringAsync(content);
     Alert.alert('Copiado!', 'O roteiro foi copiado para a área de transferência.');
   };
 
+  //chama a IA para gerar o resultado
   const onButtonPress = async () => {
-    if (value.length < 5) {
+    if (value.length < 3) {
       alert("Caracteres insuficientes!");
       return;
     }
@@ -29,6 +31,7 @@ export default function Index() {
     setLoading(false);
   };
 
+  //botão com ícone para apagar o que o usuário digitou junto com a resposta anterior
   const ClearIcon = (props: any) => (
     <TouchableOpacity onPress={() => {setValue(""); setAnswer("")}}>
       <Icon {...props} name="close-circle-outline" />

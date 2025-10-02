@@ -13,6 +13,9 @@ interface ICard {
   onPress: () => void;
   content: string;
 }
+
+//função que trata a resposta dada pela IA, o retorno está sendo:
+//* **Título**: Descrição
 function parseAnswer(answer: string): IListItem[] {
   if (!answer) return [];
 
@@ -33,13 +36,14 @@ function parseAnswer(answer: string): IListItem[] {
     });
 }
 
-
+//conteúdo do header do card
 const Header = ({ title, ...props }: any): React.ReactElement => (
   <Layout {...props} style={styles.headerCard}>
     <Text category='h6' style={styles.title_card}>Viagem para: {title}</Text>
   </Layout>
 );
 
+//conteúdo do footer do card
 const Footer = ({ onPress, ...props }: any): React.ReactElement => (
   <Layout {...props} style={styles.footerContainer}>
     <Button
@@ -53,6 +57,7 @@ const Footer = ({ onPress, ...props }: any): React.ReactElement => (
   </Layout>
 );
 
+//componente personalizado
 export default function CardComp({ title, onPress, content }: ICard) {
   const items = parseAnswer(content);
 
