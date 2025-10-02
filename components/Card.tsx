@@ -1,7 +1,3 @@
-
-
-
-
 import { styles } from '@/styles';
 import { Button, Card, Layout, Text } from '@ui-kitten/components';
 import React from 'react';
